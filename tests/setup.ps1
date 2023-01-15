@@ -5,7 +5,8 @@ if (test-path $venvpath) {
     remove-item $venvpath -recurse -force
 }
 
-C:\Python39\python -m venv $venvpath
+$installvenv = 'C:\Program` Files\Python39\python -m venv ' + $venvpath
+Invoke-Expression $installvenv
 
 $upgradepip = $venvpath + '\Scripts\pip.exe install --upgrade pip'
 $upgradepip | Invoke-Expression 

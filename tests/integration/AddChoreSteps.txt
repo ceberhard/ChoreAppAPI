@@ -1,0 +1,18 @@
+
+
+Add Chore Test
+
+1) Click Add Chore Link
+	-- Redirect to AddChore page
+	-- Assert Header Label Text
+2) Find Chore Title TextBox
+3) Enter Random String
+4) Find Add Submit Button
+5) Click Submit Button
+	-- Redirect to ViewChore page
+6) Find Chore Id Label
+	-- Assert that value is numeric and >0
+7) Find Chore Title Label
+	-- Assert that Random String is present
+
+
