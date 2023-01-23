@@ -16,6 +16,9 @@ export default function Layout() {
                 <li>
                     <Link to='/add-chore' id='lnkAddChore'>Add Chore</Link>
                 </li>
+                <li>
+                    <Link to='/view-chore/998' id='lnkViewChore'>View Chore</Link>
+                </li>
             </ul>
 
             <Outlet />

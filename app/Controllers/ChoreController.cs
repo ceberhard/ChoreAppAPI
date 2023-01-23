@@ -13,9 +13,15 @@ public class ChoreController : ControllerBase
         _logger = logger;
     }
 
+    [HttpGet("{choreId}")]
+    public async Task<int> GetChore(int choreId)
+    {
+        return choreId;
+    }
+
     [HttpPut]
     public async Task<int> AddNewChore()
     {
-        return 0;
+        return 775;
     }
 }
