@@ -1,3 +1,7 @@
+$pythonCmd = Get-Command python | ? { $_.Source.StartsWith("C:\Program") } | Select-Object -first 1
+$pythonPath = $pythonCmd.Source
+Write-Host $pythonPath
+
 $scriptpath = split-path -parent $MyInvocation.MyCommand.Definition
 $venvpath = $scriptpath + '\virtualenv'
 
@@ -5,13 +9,15 @@ if (test-path $venvpath) {
     remove-item $venvpath -recurse -force
 }
 
-$installvenv = 'C:\Program` Files\Python39\python -m venv ' + $venvpath
+$pythonPath = $pythonPath.Replace(' ', '` ')
+
+$installvenv = "$pythonPath -m venv $venvpath"
 Invoke-Expression $installvenv
 
-$upgradepip = $venvpath + '\Scripts\pip.exe install --upgrade pip'
+$upgradepip = "$venvpath\Scripts\python.exe -m pip install --upgrade pip"
 $upgradepip | Invoke-Expression 
 
-$installreqs = $venvpath + '\Scripts\pip.exe --no-cache-dir install --upgrade -r .\requirements.txt'
+$installreqs = "$venvpath\Scripts\pip.exe --no-cache-dir install --upgrade -r $scriptpath\requirements.txt"
 $installreqs | Invoke-Expression 
 
 echo ""

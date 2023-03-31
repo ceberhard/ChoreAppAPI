@@ -23,7 +23,13 @@ def main():
     r = ''.join(random.choice(string.digits) for i in range(10))
     choreTitle = f'Chore Title {r}'
     print(f'Use Chore Title: {choreTitle}')
-    txtTitle.value = choreTitle 
+    txtTitle.value = choreTitle
+
+    # Find the Add Button
+
+    # Click the Add Button
+
+    
 
     driver.quit()
 
